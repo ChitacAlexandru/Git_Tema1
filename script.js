@@ -31,6 +31,12 @@ function getTasks(){
   return JSON.parse(localStorage.getItem("tasks")) || [];
 }
 
+function markAsCompleted(taskId){
+  const tasks = getTasks();
+  tasks[taskId].completed = true;
+  saveTasks(tasks);
+}
+
 function addTask(name,description,email){
   const formData = {
     name: name,
@@ -71,6 +77,23 @@ function displayTasks(){
     <p>Email: ${task.email}</p>
     <button class="deleteBtn taskId=${index}">Delete</button>
     `;
+
+    if(task.completed){
+      taskItem.classList.add("completed");
+    }else{
+      taskItem.innerHTML +=`
+      <button class="completeBtn" taskId=${index}">Mark as complete</button>
+      `
+    
+
+    const completeBtn = taskItem.querySelector(".completeBtn");
+    completeBtn.addEventListener("click",()=>{
+      const taskId = parseInt(completeBtn.getAttribute("taskId"));
+      markAsCompleted(taskId);
+      displayTasks();
+    })
+  }
+
     const deleteBtn = taskItem.querySelector(".deleteBtn");
     deleteBtn.addEventListener("click",()=>{
       const taskId= parseInt(deleteBtn.getAttribute("taskId"));
@@ -78,9 +101,12 @@ function displayTasks(){
       saveTasks(tasks);
       displayTasks();
     });
-
-
+    
+    if(task.completed){
+      completedTaskList.appendChild(taskItem);
+    }else{
   uncompletedTaskList.appendChild(taskItem);
+    }
   });
 }
 
