@@ -1,32 +1,92 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Index</title>
-    </head>
-    <body>
-<dialog id="favDialog">
-    <form>
-      <p>
-        <label>
-          Favorite animal:
-          <select>
-            <option value="default">Choose…</option>
-            <option>Add task</option>
-            <option>View Tasks</option>
-            <option>Delete task</option>
-          </select>
-        </label>
-      </p>
-      <div>
-        <button value="cancel" formmethod="dialog">Cancel</button>
-        <button id="confirmBtn" value="default">Confirm</button>
+  <head>
+    <title>Index</title>
+  </head>
+  
+  <body>
+    <header> <p>
+      <button id="openBtn">Add Task</button>
+    </p>
+  </header>
+  <main>
+    <div class="task-container">
+      <div class="task-section">
+        <h2>Uncompleted Tasks</h2>
+        <ul id="uncompletedTaskList"></ul>
       </div>
-    </form>
-  </dialog>
-  <p>
-    <button id="showDialog">Show the dialog</button>
-  </p>
-  <output></output>
-  <script src="script.js"></script>
-</body>
-  </html>
+      <div class="task-section">
+        <h2>Completed Tasks</h2>
+        <ul id="completedTaskList"></ul>
+      </div>
+    </div>
+  </main>
+    <div id="container">
+      <dialog id="addTaskDialog">
+        <form id="taskForm">
+          
+            <label>
+              Complete the following fields:
+
+              
+                <li>
+                <label for="name">Task name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  maxlength="50"
+                  required
+                  pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+"
+                  required
+                />
+              </li>
+              
+              
+                <li>
+                <label for="description">Description:</label>
+                <!-- <input type="textarea" id="description" name="description">-->
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="5"
+                  cols="50"
+                  maxlength="250"
+                  required
+                ></textarea>
+              </li>
+              
+              
+                <li>
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  size="30"
+                  required
+                />
+              </li>
+              
+            </label>
+          
+            <li class="button">
+              <button id="cancelBtn" form method="dialog">Cancel</button>
+            </li>
+            
+            <li class="button"></li>
+              <button type="submit">Confirm</button>
+             </li>
+        </form>
+      </dialog>
+    </div>
+    
+   
+
+ 
+    
+
+    <!-- <output></output>-->
+    <script src="script.js"></script>
+  </body>
+</html>
