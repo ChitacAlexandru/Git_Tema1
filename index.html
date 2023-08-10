@@ -7,7 +7,7 @@
   
   <body>
     <header> <p>
-      <div class="topOfPage">
+      <div class="header">
         <p class="title">Task management</p>
         <button id="openBtn" class="addBtn">Add Task</button>
       </div>
@@ -20,6 +20,7 @@
         <p class="subtitle">Uncompleted Tasks</p>
         <ul id="uncompletedTaskList"></ul>
       </div>
+      <div class="literally_empty_space"></div>
       <div class="task-section">
         <p class="subtitle">Completed Tasks</p>
         <ul id="completedTaskList"></ul>
@@ -27,15 +28,12 @@
     </div>
   </main>
     <div id="dialogContainer">
-      <dialog id="addTaskDialog">
-        <form id="taskForm">
-          
-            <label>
-              Complete the following fields:
-
+      <dialog id="addTaskDialog" class="dialog">
+        <form id="taskForm" class="form">
+            
+              <p class="form-start">Complete the following fields:</p>
               
-                <li class="name-field">
-                <label for="name">Task name:</label>
+                <label for="name" class="name">Task name:</label>
                 <input
                   type="text"
                   id="name"
@@ -45,12 +43,8 @@
                   pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+"
                   required
                 />
-              </li>
-              
-              
-                <li class="description-field">
-                <label for="description">Description:</label>
-                <!-- <input type="textarea" id="description" name="description">-->
+             
+                <label for="description" class="description">Description:</label>
                 <textarea
                   id="description"
                   name="description"
@@ -59,11 +53,8 @@
                   maxlength="250"
                   required
                 ></textarea>
-              </li>
               
-              
-                <li class="email-field">
-                <label for="email">Assignee:</label>
+                <label for="email" class="email">Assignee:</label>
                 <input
                   type="email"
                   id="email"
@@ -71,21 +62,13 @@
                   size="30"
                   required
                 />
-              </li>
-              
-            </label>
-          
-            <li class="button">
-              <button id="cancelBtn" form method="dialog">Cancel</button>
-            </li>
-            
-            <li class="button"></li>
-              <button type="submit">Confirm</button>
-             </li>
+
+              <button type="submit" class ="submitBtn">Confirm</button>
+              <button id="cancelBtn" form method="dialog" class="cancelBtn">Cancel</button>
+
         </form>
       </dialog>
     </div>
     <script src="script.js"></script>
-   
   </body>
 </html>

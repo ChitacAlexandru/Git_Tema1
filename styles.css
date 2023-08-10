@@ -1,43 +1,143 @@
-.addBtn{
-    border-radius: 3px;
-    padding: 7px 12px;
-    border: 1 px solid #000000;
-    background-image: linear-gradient(#EEE,#DDD);
-    font: 700 13px/18px Helvetica, arial;
-}
-.addBtn:hover{
-    background-image: linear-gradient(#3bfc00,#ffe600);
-}
-.topOfPage{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.title{
-    font-size:3rem;
+body {
+  background-color: #cceebc;
 }
 
-.subtitle{
-    font-size:2rem;
+.addBtn {
+  border-radius: 3px;
+  padding: 20px 102px;
+  border: 1 px solid #000000;
+  background-image: linear-gradient(#eee, #ddd);
+  font: 700 25px/18px Helvetica, arial;
+  border-radius: 10px;
 }
-.tasklist-container{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100%;
-    border: 3px solid #11b159;
-    border-radius:25px;
-    padding:20px;
-    word-wrap:break-word;
+.addBtn:hover {
+  background-image: linear-gradient(#feff86, #feff86);
+}
+.header {
+  display: grid;
+  grid-template-columns: 70% 25% 5%;
+  align-items: center;
+}
+.title {
+  font-size: 3rem;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  padding-left: 40px;
 }
 
-.task-section{
-   font-size: 1rem;
+.subtitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+}
+.tasklist-container {
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+  grid-template-rows: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  word-wrap: break-word;
 }
 
+.task-section {
+  font-size: 1rem;
+  border: 3px solid #11b159;
+  border-radius: 25px;
+  padding: 20px;
+}
 
+.task {
+  word-wrap: break-word;
+  font-size: 1.5rem;
+}
 
-.task{
-    word-wrap:break-word;
-    font-size:1.5rem;
+.deleteBtn {
+  border-radius: 3px;
+  padding: 7px 12px;
+  border: 1 px solid #000000;
+  background-image: linear-gradient(#eee, #ddd);
+  font: 700 13px/18px Helvetica, arial;
+  border-radius: 10px;
+}
+
+.deleteBtn:hover {
+  background-image: linear-gradient(#fa8888, #fa8888);
+}
+
+.completeBtn {
+  border-radius: 3px;
+  padding: 7px 12px;
+  border: 1 px solid #000000;
+  background-image: linear-gradient(#eee, #ddd);
+  font: 700 13px/18px Helvetica, arial;
+  border-radius: 10px;
+}
+
+.completeBtn:hover {
+  background-image: linear-gradient(#a5f158, #a5f158);
+}
+
+.dialog {
+  width: 30%;
+  height: 45%;
+  background-color: #e3f2c1;
+  border-radius: 10px;
+  padding: 1%;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form-start {
+  font-size: 2rem;
+  margin: 0%;
+}
+
+.name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.description {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.email {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.submitBtn {
+  border-radius: 3px;
+  padding: 7px 12px;
+  border: 1 px solid #000000;
+  background-image: linear-gradient(#eee, #ddd);
+  font: 700 13px/18px Helvetica, arial;
+  border-radius: 10px;
+}
+
+.submitBtn:hover {
+  background-image: linear-gradient(#a5f158, #a5f158);
+}
+
+.cancelBtn {
+  border-radius: 3px;
+  padding: 7px 12px;
+  border: 1 px solid #000000;
+  background-image: linear-gradient(#eee, #ddd);
+  font: 700 13px/18px Helvetica, arial;
+  border-radius: 10px;
+}
+
+.cancelBtn:hover {
+  background-image: linear-gradient(#fa8888, #fa8888);
 }
