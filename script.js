@@ -88,16 +88,14 @@ function displayTasks(){
 
     const completeBtn = taskItem.querySelector(".completeBtn");
     completeBtn.addEventListener("click",()=>{
-      const taskId = parseInt(completeBtn.getAttribute("taskId"));
-      markAsCompleted(taskId);
+      markAsCompleted(index);
       displayTasks();
     })
   }
 
     const deleteBtn = taskItem.querySelector(".deleteBtn");
     deleteBtn.addEventListener("click",()=>{
-      const taskId= parseInt(deleteBtn.getAttribute("taskId"));
-      tasks.splice(taskId,1);
+      tasks.splice(index,1);
       saveTasks(tasks);
       displayTasks();
     });
@@ -112,59 +110,4 @@ function displayTasks(){
 
 taskForm.addEventListener("submit",submitTask);
 displayTasks();
-
-/*document.getElementById("taskForm").addEventListener("submit",function(event){ //This is used to make the submit button work when adding a task
-  event.preventDefault();
-
-  const formData = {
-    name: document.getElementById("name").value,
-    description: document.getElementById("description").value,
-    email: document.getElementById("email").value
-  };
-  
-
-
-  //const storedFormData=localStorage.getItem("formData");
-  let storedFormData = localStorage.getItem("formData");
-  let allFormData =  storedFormData ? JSON.parse(storedFormData) : []; //get existing data or create new array if there is none
-
-  if (!Array.isArray(allFormData)) {
-    allFormData = [];
-  }
-
-  allFormData.push(storedFormData); //add new data
-
-  localStorage.setItem("taskFormData",JSON.stringify(allFormData)); // store new data
-
-  //Clear fields for next submission
-  document.getElementById("name").value="";;
-  document.getElementById("description").value="";
-  document.getElementById("email").value="";
-
-  displayTasks(allFormData);
-})
-
-function displayTasks(formDataArray){
-  const taskOutput = document.getElementById("task-container");
-  taskOutput.innerHTML = "";
-
-  if(!Array.isArray(formDataArray) || formDataArray.length === 0 ){
-    taskOutput.innerHTML= "<p>No tasks available</p>";
-    return;
-  }
-  formDataArray.forEach((formData)=>{
-    const div = document.createElement("div");
-    div.innerHTML = `<p>Name: ${formData.name} </p> <p>Description: ${formData.description}</p> <p>Email: ${formData.email}</p>`;
-    taskOutput.appendChild(div);
-  });
-}
-
-window.addEventListener("load",function(){
-  const storedFormData = localStorage.getItem("taskFormData");
-  if(storedFormData){
-    const formDataArray = JSON.parse(storedFormData);
-   displayTasks(formDataArray);
-  }
-})
-*/
 

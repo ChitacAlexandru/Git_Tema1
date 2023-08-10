@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Index</title>
+    <title>Main page</title>
+    <link rel="stylesheet" href="styles.css"/>
   </head>
   
   <body>
     <header> <p>
-      <button id="openBtn">Add Task</button>
+      <div class="topOfPage">
+        <p class="title">Task management</p>
+        <button id="openBtn" class="addBtn">Add Task</button>
+      </div>
+      
     </p>
   </header>
   <main>
     <div class="tasklist-container">
       <div class="task-section">
-        <h2>Uncompleted Tasks</h2>
+        <p class="subtitle">Uncompleted Tasks</p>
         <ul id="uncompletedTaskList"></ul>
       </div>
       <div class="task-section">
-        <h2>Completed Tasks</h2>
+        <p class="subtitle">Completed Tasks</p>
         <ul id="completedTaskList"></ul>
       </div>
     </div>
@@ -29,7 +34,7 @@
               Complete the following fields:
 
               
-                <li>
+                <li class="name-field">
                 <label for="name">Task name:</label>
                 <input
                   type="text"
@@ -43,7 +48,7 @@
               </li>
               
               
-                <li>
+                <li class="description-field">
                 <label for="description">Description:</label>
                 <!-- <input type="textarea" id="description" name="description">-->
                 <textarea
@@ -57,8 +62,8 @@
               </li>
               
               
-                <li>
-                <label for="email">Email:</label>
+                <li class="email-field">
+                <label for="email">Assignee:</label>
                 <input
                   type="email"
                   id="email"
@@ -80,13 +85,7 @@
         </form>
       </dialog>
     </div>
-    
-   
-
- 
-    
-
-    <!-- <output></output>-->
     <script src="script.js"></script>
+   
   </body>
 </html>
