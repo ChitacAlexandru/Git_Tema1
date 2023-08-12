@@ -67,6 +67,19 @@ body {
   background-image: linear-gradient(#fa8888, #fa8888);
 }
 
+.editBtn {
+  border-radius: 3px;
+  padding: 7px 12px;
+  border: 1 px solid #000000;
+  background-image: linear-gradient(#eee, #ddd);
+  font: 700 13px/18px Helvetica, arial;
+  border-radius: 10px;
+}
+
+.editBtn:hover {
+  background-image: linear-gradient(#feff86, #feff86);
+}
+
 .completeBtn {
   border-radius: 3px;
   padding: 7px 12px;

@@ -4,7 +4,8 @@ const taskForm = document.getElementById("taskForm");
 const openBtn = document.getElementById("openBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-let taskId = null;
+let taskEditId = null;
+console.log(taskEditId);
 
 openBtn.addEventListener("click", () => {
   addTaskDialog.showModal();
@@ -12,11 +13,14 @@ openBtn.addEventListener("click", () => {
 
 cancelBtn.addEventListener("click", (e) => {
   taskForm.reset();
-  taskId = null;
+  taskEditId = null;
   addTaskDialog.close();
 });
 
 addTaskDialog.addEventListener("close", (e) => {
+  //functionalitate pt escape
+  taskForm.reset();
+  taskId = null;
   addTaskDialog.close();
 });
 
@@ -46,14 +50,39 @@ function addTask(name, description, email) {
   saveTasks(tasks);
 }
 
+function editTaskEvent(index, name, description, email) {
+  console.log(taskEditId);
+  const tasks = getTasks();
+  tasks[index].name = name;
+  tasks[index].description = description;
+  tasks[index].email = email;
+  saveTasks(tasks);
+}
+
+function editTaskClick(taskIndex) {
+  const tasks = getTasks();
+  const editTask = tasks[taskIndex];
+  taskForm.name.value = editTask.name;
+  taskForm.description.value = editTask.description;
+  taskForm.email.value = editTask.email;
+  taskEditId = taskIndex;
+  console.log(taskEditId);
+  addTaskDialog.showModal();
+}
+
 function submitTask(event) {
   event.preventDefault();
 
-  const title = taskForm.name.value;
+  const name = taskForm.name.value;
   const description = taskForm.description.value;
   const email = taskForm.email.value;
 
-  addTask(title, description, email);
+  if (taskEditId == null) {
+    addTask(name, description, email);
+  } else {
+    editTaskEvent(taskEditId, name, description, email);
+    taskEditId = null;
+  }
   taskForm.reset();
   addTaskDialog.close();
   displayTasks();
@@ -73,6 +102,7 @@ function displayTasks() {
     <p>Description: ${task.description}</p> 
     <p>Email: ${task.email}</p>
     <button class="deleteBtn">Delete</button>
+   
     `;
 
     if (task.completed) {
@@ -80,12 +110,18 @@ function displayTasks() {
     } else {
       taskItem.innerHTML += `
       <button class="completeBtn">Mark as complete</button>
+      <button class="editBtn" taskid="${index}">Edit task</buton>
       `;
 
       const completeBtn = taskItem.querySelector(".completeBtn");
       completeBtn.addEventListener("click", () => {
         markAsCompleted(index);
         displayTasks();
+      });
+      const editBtn = taskItem.querySelector(".editBtn");
+      editBtn.addEventListener("click", () => {
+        const taskId = parseInt(editBtn.getAttribute("taskid"));
+        editTaskClick(taskId);
       });
     }
 
